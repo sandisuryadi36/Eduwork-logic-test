@@ -1,9 +1,9 @@
 // soal 1
-function factorial(n) { 
+function factorial(n) {
     if (n == 0) {
         return 1;
     } else {
-        return n * factorial(n-1);
+        return n * factorial(n - 1);
     }
 }
 
@@ -19,15 +19,15 @@ function reverseString(str) {
 // soal 3
 function printDigitValue(value) {
     let number = ""
-    for (i = 0; i < value.length; i++) { 
-        if (value[i] >= 0 && value[i] <= 9) { 
+    for (i = 0; i < value.length; i++) {
+        if (value[i] >= 0 && value[i] <= 9) {
             number += value[i];
         }
     }
     console.log(number);
     for (i = 0; i < number.length; i++) {
         let printLine = number[i];
-        for (j = i; j < number.length-1; j++) {
+        for (j = i; j < number.length - 1; j++) {
             printLine += "0";
         }
         console.log(printLine);
@@ -54,8 +54,16 @@ function tulisBilangan(n) {
     while (n > 0) {
         let digitNow = n % 10;
         if (digitNow > 0) {
-            if (n === 1 && i !== 0) { 
-                result = "se" + imbuhan[i] + " " + result;
+            if (n === 1) {
+                if (i < 1) {
+                    result = digit[n];
+                } else {
+                    if (result === "") {
+                        result = "se" + imbuhan[i];
+                    } else if (result === "satu ") {
+                        result = "sebelas"
+                    } else result += "belas";
+                }
             } else result = digit[digitNow] + imbuhan[i] + " " + result;
         }
         n = Math.floor(n / 10);
@@ -66,7 +74,7 @@ function tulisBilangan(n) {
 
 // soal 6
 const arrayEnam = [1, 4, 7, 9, 12];
-function getBetween(array, low, high) { 
+function getBetween(array, low, high) {
     let result = [];
     for (i = 0; i < array.length; i++) {
         if (array[i] >= low && array[i] <= high) {
@@ -113,7 +121,7 @@ function getLowHigh(array) {
 }
 
 // soal 10
-function kabisat(year) { 
+function kabisat(year) {
     if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
         return year + " adalah tahun kabisat";
     } else {
@@ -126,7 +134,7 @@ function kabisat(year) {
 // console.log(reverseString("hello"));
 // printDigitValue("9.86-A5.321");
 // console.log(swapNumber(1, 2));
-// console.log(tulisBilangan(100));
+// console.log(tulisBilangan(14));
 // console.log(getBetween(arrayEnam, 3, 11));
 // console.log(countBetween(arrayEnam, 3, 11));
 // eduWork(15)
